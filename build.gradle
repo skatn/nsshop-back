@@ -63,6 +63,17 @@ jacocoTestReport {
         csv.required = false
     }
 
+    afterEvaluate {
+        classDirectories.setFrom(
+                files(classDirectories.files.collect {
+                    fileTree(dir: it, excludes: [
+                            '**/*Application*',
+                            '**/global/error/*'
+                    ])
+                })
+        )
+    }
+
     finalizedBy('jacocoTestCoverageVerification')
 }
 
@@ -90,6 +101,11 @@ jacocoTestCoverageVerification {
                 value = 'TOTALCOUNT'
                 maximum = 200
             }
+
+            excludes = [
+                    '**.Application*',
+                    '**.global.error.*'
+            ]
         }
     }
 }
