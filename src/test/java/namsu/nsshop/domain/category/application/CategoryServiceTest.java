@@ -29,6 +29,7 @@ class CategoryServiceTest {
     void create() {
         // given
         String name = "카테고리";
+        int position = 0;
         Category category = Category.builder()
                 .id(1L)
                 .name(name)
@@ -36,7 +37,7 @@ class CategoryServiceTest {
         given(categoryRepository.save(any())).willReturn(category);
 
         // when
-        Long categoryId = categoryService.create(name, null);
+        Long categoryId = categoryService.create(name, null, position);
 
         // then
         assertThat(categoryId).isEqualTo(1L);
@@ -49,6 +50,7 @@ class CategoryServiceTest {
         // given
         String name = "카테고리";
         Long parentId = 1L;
+        int position = 0;
         Category category = Category.builder()
                 .id(2L)
                 .name(name)
@@ -56,7 +58,7 @@ class CategoryServiceTest {
         given(categoryRepository.save(any())).willReturn(category);
 
         // when
-        Long categoryId = categoryService.create(name, parentId);
+        Long categoryId = categoryService.create(name, parentId, position);
 
         // then
         assertThat(categoryId).isEqualTo(2L);

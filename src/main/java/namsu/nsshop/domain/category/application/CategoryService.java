@@ -15,12 +15,13 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Transactional
-    public Long create(String name, Long parentId) {
+    public Long create(String name, Long parentId, int position) {
         Category category = Category.builder()
                 .name(name)
                 .parent(parentId == null ? null : Category.builder()
                         .id(parentId)
                         .build())
+                .position(position)
                 .build();
 
         return categoryRepository.save(category).getId();
