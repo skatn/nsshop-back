@@ -27,11 +27,6 @@ public class CategoryService {
         return categoryRepository.save(category).getId();
     }
 
-    public Category getDetails(Long id) {
-        return categoryRepository.findById(id)
-                .orElseThrow(EntityNotFoundException::new);
-    }
-
     @Transactional
     public void update(Long id, String name) {
         Category category = categoryRepository.findById(id)

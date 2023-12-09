@@ -1,0 +1,21 @@
+### 1. 카테고리 생성
+POST {{baseUrl}}/admin/category
+Content-Type: application/json
+
+{
+  "name": "카테고리1",
+  "position": 0,
+  "parentId": null
+}
+
+### 2. 카테고리 조회
+GET {{baseUrl}}/admin/category/1
+
+### 3. 카테고리 수정
+PATCH {{baseUrl}}/admin/category/1
+Content-Type: application/json
+
+{
+  "name": "카테고리1 - 수정"
+}
+

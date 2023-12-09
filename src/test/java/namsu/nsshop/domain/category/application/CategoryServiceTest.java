@@ -66,24 +66,6 @@ class CategoryServiceTest {
     }
 
     @Test
-    @DisplayName("카테고리 상세 내용 조회")
-    void details() {
-        // given
-        Category category = Category.builder()
-                .id(1L)
-                .name("카테고리")
-                .build();
-        given(categoryRepository.findById(anyLong()))
-                .willReturn(Optional.of(category));
-
-        // when
-        Category actual = categoryService.getDetails(1L);
-
-        // then
-        assertThat(actual).isEqualTo(category);
-    }
-
-    @Test
     @DisplayName("카테고리 정보 수정")
     void update() {
         // given
