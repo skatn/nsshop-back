@@ -19,3 +19,6 @@ Content-Type: application/json
   "name": "카테고리1 - 수정"
 }
 
+### 4. 카테고리 삭제
+DELETE {{baseUrl}}/admin/category/1
+
