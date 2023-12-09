@@ -1,0 +1,6 @@
+[[Category-API]]
+== Category API
+
+[[CAtegory-create]]
+=== 카테고리 생성
+operation::admin/category/create[snippets='http-request,http-response,request-fields,response-fields']
